@@ -24,18 +24,20 @@ export class Widget {
     renderShadowDOM() {
         this.container .classList.add("container");
 
-        this.shadow.appendChild(this.container );
+        this.shadow.appendChild(this.container);
         const loader = document.createElement("div");
         loader.classList.add("loader");
 
-        this.container .appendChild(loader);
+        this.container.appendChild(loader);
     }
 
     setStyles() {
         const sheet = new CSSStyleSheet();
+
         sheet.replace(
             ` p {margin: 0;} .container {box-sizing: border-box; font-size: ${this.fontSize}; color: ${this.textColor};width: ${this.width}; height: ${this.height}; padding: 20px; background-color: ${this.backgroundColor}; box-shadow: 8px 9px 18px 0px ${this.shadowColor};} .content {position: relative;} .content .icon { position: absolute;  top: ${this.positionTop}; right: ${this.positionRight};} .loader { width: 40px; height: 40px; margin: 0 auto; aspect-ratio: 1; position: relative; transform: rotate(45deg);} .loader:before,.loader:after { position: absolute; inset: 0; border-radius: 50% 50% 0 50%; background: ${this.loaderColor};-webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#000); content: '';} .loader:after { animation: l6 1s infinite; transform: perspective(300px) translateZ(0px)} @keyframes l6 {to {transform: perspective(300px) translateZ(150px); opacity:0}}`
         );
+
         this.shadow.adoptedStyleSheets = [sheet];
     }
 
@@ -43,9 +45,9 @@ export class Widget {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((pos)=>this.success(pos, this), (pos)=>this.error(pos, this));
             
-            console.log("geolocation is available")
+            console.log("geolocation is available");
         } else {
-            console.log("geolocation IS NOT available")
+            console.log("geolocation IS NOT available");
         }
     }
 
@@ -61,7 +63,6 @@ export class Widget {
     }
 
     getWeather(lat, lon) {
-        console.log(lat, lon)
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.key}&lang=${this.language}&units=metric`)
         .then((response) => {
           if (!response.ok) {
@@ -71,8 +72,7 @@ export class Widget {
           return response.json();
         })
         .then((response) => {
-          this.createWidget(response)
-          console.log(43, response)
+          this.createWidget(response);
         });
     }
       
@@ -85,7 +85,7 @@ export class Widget {
         weather.textContent = res.weather[0].description;
         const temperature = document.createElement("p");
 
-        temperature.style.fontSize="1.5em"
+        temperature.style.fontSize="1.5em";
         temperature.textContent = Math.round(res.main.temp) + "°C";
         const icon = document.createElement("img");
         icon.classList.add("icon");
@@ -100,6 +100,4 @@ export class Widget {
         this.container.innerHTML = "";
         this.container.appendChild(content);
     }
-
-
 }

@@ -15,14 +15,14 @@
       <div class="loader"></div>
     </div>
     <div id="root"></div>
-    <script src="dom.js" type="module"></script>
     <script src="./WidgetClass.js" type="module"></script>
     <script type="module">
       import { Widget } from './WidgetClass.js';
-      const slider = new Widget({
+      const widget = new Widget({
         // mandatory arguments
         host: document.querySelector("#root"),
         // key: import.meta.env.VITE_WEATHER_API_KEY,
+        
         // arguments with defauld values
         backgroundColor: "aliceblue", 
         width: "260px", 
@@ -36,5 +36,6 @@
         positionRight: "0px"
       })
   </script>
+  <script src="dom.js" type="module"></script>
   </body>
 </html>

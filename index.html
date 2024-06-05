@@ -14,13 +14,13 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
       <div class="loader"></div>
     </div>
-    <div id="root"></div>
-    <script src="./WidgetClass.js" type="module"></script>
+    <div id="root-widget-class"></div>
+    <custom-component></custom-component>
     <script type="module">
       import { Widget } from './WidgetClass.js';
       const widget = new Widget({
         // mandatory arguments
-        host: document.querySelector("#root"),
+        host: document.querySelector("#root-widget-class"),
         // key: import.meta.env.VITE_WEATHER_API_KEY,
         
         // arguments with defauld values
@@ -35,7 +35,27 @@
         positionTop: "-15px", 
         positionRight: "0px"
       })
-  </script>
+    </script>
+    <script type="module">
+      import {createCustomElement} from "./CustomComponent.js";
+      createCustomElement(
+        {
+          // mandatory arguments
+          // key: import.meta.env.VITE_WEATHER_API_KEY,
+          
+          // arguments with defauld values
+          backgroundColor: "aliceblue", 
+          width: "260px", 
+          height:"104px", 
+          shadowColor: "rgba(81,75,130,1)", 
+          textColor: "black", 
+          fontSize: "18px", 
+          language: "uk",
+          positionTop: "200px", 
+          positionRight: "40px"
+        }
+      );
+    </script>
   <script src="dom.js" type="module"></script>
   </body>
 </html>

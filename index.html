@@ -16,6 +16,14 @@
     </div>
     <div id="root-widget-class"></div>
     <custom-component></custom-component>
+    <div id="root-template">
+      <template shadowrootmode="open">
+        <link rel="stylesheet" href="templateStyle.css">
+        <p>City</p>
+        <p>Weather</p>
+        <p class="temp">Temperature</p>
+      </template>
+    </div>
     <script type="module">
       import { Widget } from './WidgetClass.js';
       const widget = new Widget({
@@ -56,6 +64,7 @@
         }
       );
     </script>
+    <script src="./TemplateFragment.js" type="module"></script>
   <script src="dom.js" type="module"></script>
   </body>
 </html>

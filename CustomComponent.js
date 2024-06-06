@@ -3,9 +3,8 @@ let _this = null;
 export function createCustomElement({ key = "ad3e4f050c831243787b3b3283c70545", backgroundColor = "aliceblue", width = "260px", height = "104px", shadowColor = "rgba(81,75,130,1)", textColor = "black", fontSize = "18px", language = "uk", positionTop = "-15px", positionRight = "0px"}) {
     customElements.define('custom-component', class extends HTMLElement {
         constructor() {
-        super(); // always call super() first in the constructor.
+        super();
     
-        // Attach a shadow root to <fancy-tabs>.
         const shadowRoot = this.attachShadow({mode: 'open'});
         _this = shadowRoot;
         shadowRoot.innerHTML = `

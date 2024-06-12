@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Shadow DOM</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <a href="./index.html">Animation</a>
+          <a href="./shadowDom.html">Shadow DOM</a>
+          <a href="./historyApi.html">History API</a>
+          <a href="./pseudoClasses.html">Pseudo-classes</a>
+          <a></a>
+          <a></a>
+        </nav>
+      </header>
+    <hr>
+    <h1>Shadow DOM</h1>
+    <div class="container">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
+        <div class="loader"></div>
+    </div>
+    <div class="double"></div>
+    <div id="root-widget-class"></div>
+    <custom-component></custom-component>
+    <div id="root-template">
+        <template shadowrootmode="open">
+          <link rel="stylesheet" href="templateStyle.css">
+          <p>City</p>
+          <p>Weather</p>
+          <p class="temp">Temperature</p>
+        </template>
+    </div>
+    <script type="module">
+        import { Widget } from './widgetClass.js';
+        const widget = new Widget({
+          // mandatory arguments
+          host: document.querySelector("#root-widget-class"),
+          // key: import.meta.env.VITE_WEATHER_API_KEY,
+          
+          // arguments with defauld values
+          backgroundColor: "aliceblue", 
+          width: "260px", 
+          height:"104px", 
+          shadowColor: "rgba(81,75,130,1)", 
+          textColor: "black", 
+          fontSize: "18px", 
+          loaderColor: "rgb(81,75,130)",
+          language: "uk",
+          positionTop: "-15px", 
+          positionRight: "0px"
+        })
+    </script>
+    <script type="module">
+        import { Widget } from './widgetClass.js';
+        const widget2 = new Widget({
+          // mandatory arguments
+          host: document.querySelector(".double"),
+          // key: import.meta.env.VITE_WEATHER_API_KEY,
+          
+          // arguments with defauld values
+          backgroundColor: "aliceblue", 
+          width: "260px", 
+          height:"104px", 
+          shadowColor: "rgba(81,75,130,1)", 
+          textColor: "black", 
+          fontSize: "18px", 
+          loaderColor: "rgb(81,75,130)",
+          language: "uk",
+          positionTop: "-15px", 
+          positionRight: "0px"
+        })
+    </script>
+    <script type="module">
+        import {createCustomElement} from "./customComponent.js";
+        createCustomElement(
+          {
+            // mandatory arguments
+            // key: import.meta.env.VITE_WEATHER_API_KEY,
+            
+            // arguments with defauld values
+            backgroundColor: "aliceblue", 
+            width: "260px", 
+            height:"104px", 
+            shadowColor: "rgba(81,75,130,1)", 
+            textColor: "black", 
+            fontSize: "18px", 
+            language: "uk",
+            positionTop: "200px", 
+            positionRight: "40px"
+          }
+        );
+    </script>
+  <script>
+    const loader = document.querySelector(".loader");
+    setTimeout(()=>{
+        loader.remove();
+    }, 2000)
+  </script>
+  <script src="./templateFragment.js" type="module"></script>
+</body>
+</html>

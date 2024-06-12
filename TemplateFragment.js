@@ -41,8 +41,6 @@ function getWeather(lat, lon) {
 }
 
 function fillFragment(res) {
-    console.log(res)
-    console.log(template)
     const children = [...template.children];
     children.forEach(child =>{
         switch (child.textContent) {

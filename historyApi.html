@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>History API</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html">Animation</a>
+            <a href="./shadowDom.html">Shadow DOM</a>
+            <a href="./historyApi.html">History API</a>
+            <a href="./pseudoClasses.html">Pseudo-classes</a>
+            <a></a>
+            <a></a>
+        </nav>
+    </header>
+    <hr>
+
+    <h1>History API</h1>
+    <button class="back">Go back</button>
+    <button class="forward">Go forward</button>
+
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks London" onclick="openCity( 'London')" id="defaultOpen">London</button>
+        <button class="tablinks Paris" onclick="openCity('Paris')">Paris</button>
+        <button class="tablinks Tokyo" onclick="openCity('Tokyo')">Tokyo</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+    <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <script>
+        const backButtonEl = document.querySelector(".back");
+        const forwardButtonEl = document.querySelector(".forward");
+        
+        onpopstate = () => {
+            console.log("on", window.location.pathname)
+            if (history.state?.city_name) {
+                backButtonEl.removeAttribute("disabled");
+                showTab(history.state.city_name);
+            } else {
+                backButtonEl.setAttribute("disabled", "");
+            }
+        };
+
+        // Get the element with id="defaultOpen" and click on it
+        function openCity(cityName) {
+            showTab(cityName)
+            const state = { city_name: cityName };
+            history.pushState(state, "", `./selected=${cityName}`);
+        }
+
+        backButtonEl.addEventListener("click", ()=>{
+            history.back();
+        });
+
+        forwardButtonEl.addEventListener("click", ()=>{
+            history.forward();
+        });
+
+        function showTab(cityName) {
+
+            console.log(history.length)
+            // Declare all variables
+            let i, tabcontent, tablinks;
+        
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+        
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+        
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.querySelector(`#${cityName}`).style.display = "block";
+            document.querySelector(`.${cityName}`).classList.add("active");
+        }
+    </script>
+</body>
+</html>

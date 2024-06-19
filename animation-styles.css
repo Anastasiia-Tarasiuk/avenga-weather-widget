@@ -1,0 +1,184 @@
+html{ 
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fortune wheel */
+.circle-img {
+    width: 300px;
+    animation: 2.5s linear infinite spin;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.stopped {
+    animation-name: none;
+}
+  
+/* Rotating qube */
+.container {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
+.square {
+    width: 94%;
+    height: 94%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -47% 0 0 -47%;
+}
+
+.black {
+    background-color: black;
+    animation: 10s infinite linear rotate-qube; 
+}
+
+@keyframes rotate-qube {
+    0% { 
+        transform: rotate(360deg); 
+    }
+	100% { 
+        transform: rotate(0deg); 
+    }	
+}
+
+/* Falling words */
+.word {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+}
+
+.text p {
+    display: inline-flex;
+    vertical-align: top;
+    font-size: 32px;
+    margin-right: 6px;
+}
+
+.current {
+    opacity: 1;
+}
+
+.letter {
+    transform-origin: center center 25px;
+}
+
+.in {
+    transition: 0.38s ease;
+}
+
+.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+
+.behind {
+    transform: rotateX(-90deg);
+}
+
+.qube {
+    width: 200px;
+    height: 200px;
+    background-color: #4B369D;
+    margin: 0 auto;
+    animation: translate 1s 0s ease-out, rotate 3s 1s ease-out, skew 4s 4s ease-out, scale 4s 8s ease-out, matrix 4s 12s ease-out, perspective 4s 16s ease-out;
+}
+
+@keyframes translate{
+    0% { 
+        transform: translate(0px, 0px); 
+        background-color: #70369D;
+    }
+    50% {
+        background-color: #E81416;
+        transform: translate(120px, 50%); 
+    }
+	100% { 
+        transform: translate(0px, 0px); 
+        background-color: #E81416;
+    }	
+}
+
+@keyframes rotate{
+    0% { 
+        transform: rotate(0.5turn); 
+        background-color: #E81416;
+    }
+	100% { 
+        transform: rotate(0); 
+        background-color: #FFA500;
+    }	
+}
+
+@keyframes skew{
+    0% { 
+        transform: skew(30deg, 20deg); 
+        background-color: #FFA500;
+    }
+	100% { 
+        transform: skew(0deg, 0deg);
+        background-color: #faeb36; 
+    }	
+}
+
+@keyframes scale{
+    0% { 
+        transform: scale(2, 0.5); 
+        background-color: #faeb36; 
+    }
+	100% { 
+        transform: scale(1, 1); 
+        background-color: #79c314; 
+    }	
+}
+
+@keyframes matrix{
+    0% { 
+        transform: matrix(1, 2, 3, 4, 5, 6); 
+        background-color: #79c314; 
+    }
+	100% { 
+        transform: matrix(0, 1, 1, 0, 0, 0); 
+        background-color: #487DE7; 
+    }	
+}
+
+@keyframes perspective { 
+    0% { 
+      transform-origin: 100% 0; 
+      transform: perspective(800px) rotateY(0deg); 
+      background-color: #487DE7; 
+    }
+    33% { 
+      transform-origin: 100% 0; 
+      transform: perspective(800px) rotateY(180deg); 
+    }
+    66% { 
+      transform-origin: 0 100% ; 
+      transform: perspective(800px) rotateX(270deg); 
+    }
+    100% { 
+      transform-origin: 0 100%; 
+      transform: perspective(800px) rotateY(0deg); 
+      background-color: #70369D; 
+    }
+  }

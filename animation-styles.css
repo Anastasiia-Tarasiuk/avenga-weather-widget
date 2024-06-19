@@ -95,25 +95,25 @@ html{
     transform: rotateX(-90deg);
 }
 
-.qube {
+.qube.animated {
     width: 200px;
     height: 200px;
-    background-color: #4B369D;
+    background-color: #E81416;
+    transform: translate(-60px, -25%); 
     margin: 0 auto;
-    animation: translate 1s 0s ease-out, rotate 3s 1s ease-out, skew 4s 4s ease-out, scale 4s 8s ease-out, matrix 4s 12s ease-out, perspective 4s 16s ease-out;
+    animation: translate 1s 0s ease-out, rotate 3s 1s ease-out, skew 4s 4s ease-out, scale 4s 8s ease-out, matrix 4s 12s ease-out, perspective 4s 16s ease-out, translate-finish 1s 20s ease-out;
 }
 
 @keyframes translate{
     0% { 
-        transform: translate(0px, 0px); 
-        background-color: #70369D;
+        transform: translate(-60px, -25%); 
+        background-color: #E81416;
     }
     50% {
-        background-color: #E81416;
         transform: translate(120px, 50%); 
     }
 	100% { 
-        transform: translate(0px, 0px); 
+        transform: translate(-60px, -25%); 
         background-color: #E81416;
     }	
 }
@@ -172,6 +172,9 @@ html{
       transform-origin: 100% 0; 
       transform: perspective(800px) rotateY(180deg); 
     }
+    50% {
+        background-color: #70369D; 
+    }
     66% { 
       transform-origin: 0 100% ; 
       transform: perspective(800px) rotateX(270deg); 
@@ -179,6 +182,20 @@ html{
     100% { 
       transform-origin: 0 100%; 
       transform: perspective(800px) rotateY(0deg); 
-      background-color: #70369D; 
+      background-color: #4B369D; 
     }
-  }
+}
+
+@keyframes translate-finish{
+    0% { 
+        transform: translate(-60px, -25%); ; 
+        background-color: #4B369D;
+    }
+    50% {
+        transform: translate(120px, 50%); 
+    }
+	100% { 
+        transform: translate(-60px, -25%); 
+        background-color: #E81416;
+    }	
+}

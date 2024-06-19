@@ -9,15 +9,6 @@ const runFunc = () => {
     el.className = "circle-img";
 };
 
-// const runFunc = () => {
-//     requestAnimationFrame(() => {
-//       requestAnimationFrame(() => {
-//         el.className = "circle-img";
-//       });
-//     });
-// };
-
-
 el.addEventListener("mouseenter", () => el.addEventListener("animationiteration", stopFunc));
 
 el.addEventListener("mouseleave", () => {
@@ -71,5 +62,16 @@ function changeWords() {
 }
 
 
+function play() {
+    document.querySelector(".qube").className = "qube";
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        document.querySelector(".qube").className = "qube animated";
+      });
+    });
+  }
+
+
 changeWords();
 setInterval(changeWords, 4000);
+setInterval(play, 24000);

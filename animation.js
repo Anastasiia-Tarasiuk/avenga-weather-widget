@@ -65,12 +65,11 @@ function changeWords() {
 function play() {
     document.querySelector(".qube").className = "qube";
     window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        document.querySelector(".qube").className = "qube animated";
-      });
+        window.requestAnimationFrame(function () {
+            document.querySelector(".qube").className = "qube animated";
+        });
     });
-  }
-
+}
 
 changeWords();
 setInterval(changeWords, 4000);

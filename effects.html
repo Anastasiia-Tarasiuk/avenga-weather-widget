@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="effects.css" />
+    <title>Effects</title>
+</head>
+<body>
+    <h1>Background blend mode: <span class="modeList">normal</span></h1>
+
+    <label class="switch">
+        <input class="checkbox" type="checkbox">
+        <span class="slider round"></span>
+    </label>
+
+    <span class="tip hidden">If the blending modes' and background images' list lengths are not equal, it will be repeated and/or truncated until lengths match.</span>
+
+    <div class="container">
+        <form class="form">
+            <legend>Normal</legend>
+            <label>Normal
+                <input checked type="radio" value="normal" name="blend">
+            </label>
+            <legend>Lighter</legend>
+            <label>Lighten
+                <input type="radio" value="lighten" name="blend">
+            </label>
+            <label>Screen
+                <input type="radio" value="screen" name="blend">
+            </label>
+            <label>Color-dodge
+                <input type="radio" value="color-dodge" name="blend">
+            </label>
+            <legend>Darker</legend>
+            <label>Darken
+                <input type="radio" value="darken" name="blend">
+            </label>
+            <label>Multiply
+                <input type="radio" value="multiply" name="blend">
+            </label>
+            <label>Color-burn
+                <input type="radio" value="color-burn" name="blend">
+            </label>
+            <legend>Contrast</legend>
+            <label>Overlay
+                <input type="radio" value="overlay" name="blend">
+            </label>
+            <label>Hard-light
+                <input type="radio" value="hard-light" name="blend">
+            </label>
+            <label>Soft-light
+                <input type="radio" value="soft-light" name="blend">
+            </label>
+            <legend>Comparative</legend>
+            <label>Difference
+                <input type="radio" value="difference" name="blend">
+            </label>
+            <label>Exclusion
+                <input type="radio" value="exclusion" name="blend">
+            </label>
+            <legend>Color</legend>
+            <label>Hue
+                <input type="radio" value="hue" name="blend">
+            </label>
+            <label>Saturation
+                <input type="radio" value="saturation" name="blend">
+            </label>
+            <label>Luminosity
+                <input type="radio" value="luminosity" name="blend">
+            </label>
+            <label>Color
+                <input type="radio" value="color" name="blend">
+            </label>
+        </form>
+        <div class="blend"></div>
+    </div>
+    <script src="./effects.js" type="module"></script>
+</body>
+</html>

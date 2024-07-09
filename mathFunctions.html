@@ -113,25 +113,27 @@
         </ul>
     </div>
     <div class="container">
-    <div class="rotate">Rotate</div>
-    <p class="round">round(<span class="strategy"></span>, <span class="value"></span>deg, <span class="interval"></span>deg) = <span class="result"></span></p>
-    <form>
-        <label>Strategy
-            <select id="strategy">
-                <option>up</option>
-                <option>down</option>
-                <option>nearest</option>
-                <option>to-zero</option>
-            </select>
-        </label>
-        <label>Value
-            <input id="value" type="range" min="-300" max="300" value="30" step="5"/>
-        </label>
-        <label>Interval
-            <input id="interval" type="range" min="1" max="100" value="45" step="1"/>
-        </label>
-    </form>
+        <div class="rotate">Rotate</div>
+        <p class="round">round(<span class="strategy"></span>, <span class="value"></span>deg, <span class="interval"></span>deg) = <span class="result"></span></p>
+        <form>
+            <label>Strategy
+                <select id="strategy">
+                    <option>up</option>
+                    <option>down</option>
+                    <option>nearest</option>
+                    <option>to-zero</option>
+                </select>
+            </label>
+            <label>Value
+                <input id="value" type="range" min="-300" max="300" value="30" step="5"/>
+            </label>
+            <label>Interval
+                <input id="interval" type="range" min="1" max="100" value="45" step="1"/>
+            </label>
+        </form>
     </div>
+    <div class="circle"></div>
+    <div src="./assets/circle.png" class="gradient"></div>
     <script src="./mathFunctions.js"></script>
 </body>
 </html>

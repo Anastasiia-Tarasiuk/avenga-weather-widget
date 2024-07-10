@@ -1,13 +1,14 @@
 const blend = document.querySelector(".blend");
 const checkbox = document.querySelector(".checkbox");
-const inputs = document.querySelector(".form").querySelectorAll("input");
+const form = document.querySelector(".form");
+const inputs = form.querySelectorAll("input");
 const tip = document.querySelector(".tip");
 const modeList = document.querySelector(".modeList");
 
 let isMultipleModeOn = null;
 let mode = [];
 
-document.querySelector(".form").addEventListener("change", e => chooseValue(e));
+form.addEventListener("change", e => chooseValue(e));
 checkbox.addEventListener("change", e => getCheckboxValue(e));
 
 function chooseValue(e) {
@@ -42,7 +43,6 @@ function setMultipleStyle(radio) {
     }
 
     const modeValue = mode.join(", ");
-
     modeList.textContent = modeValue ;
     blend.style.backgroundBlendMode = modeValue;
 }
@@ -53,13 +53,19 @@ function getCheckboxValue(e) {
 }
 
 function changeInputType(type){
+    if (form.classList.contains("extra-space")) {
+        form.classList.remove("extra-space");
+    } else {
+        form.classList.add("extra-space");
+    }
+
     inputs.forEach(input => {
         input.type = type;
 
         if (input.checked) {
             const value = input.value;
             blend.style.backgroundBlendMode = value;
-            mode.push(value);
+            mode = [value];
             tip.classList.add("hidden");
             modeList.textContent = value;
         }

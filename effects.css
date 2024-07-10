@@ -31,8 +31,16 @@ label:has(+legend){
     margin-right: 0 !important;
 }
 
+.tip {
+    color: red;
+}
+
 .tip.hidden {
     display: none;
+}
+
+.form.extra-space > label:not(:last-child) {
+    margin-right: 21.5px;
 }
 
 /* The switch - the box around the slider */

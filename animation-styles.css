@@ -1,4 +1,5 @@
-html{ 
+/*  */
+html { 
     overflow: hidden;
     position: relative;
 }
@@ -32,14 +33,14 @@ html{
     width: 250px;
     height: 250px;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 40%;
 }
 
 .square {
     width: 94%;
     height: 94%;
-    background-color: white;
+    background-color: var(--opposite-color);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,7 +48,7 @@ html{
 }
 
 .black {
-    background-color: black;
+    background-color: var(--base-color);
     animation: 10s infinite linear rotate-qube; 
 }
 
@@ -66,12 +67,17 @@ html{
     position: absolute;
     display: flex;
 }
+.text {
+    margin-top: var(--margin-gap);
+}
 
 .text p {
     display: inline-flex;
     vertical-align: top;
     font-size: 32px;
     margin-right: 6px;
+    color: var(--color-violet);
+
 }
 
 .current {
@@ -98,7 +104,7 @@ html{
 .qube.animated {
     width: 200px;
     height: 200px;
-    background-color: #E81416;
+    background-color: var(--color-red);
     transform: translate(-60px, -25%); 
     margin: 0 auto;
     animation: translate 1s 0s ease-out, rotate 3s 1s ease-out, skew 4s 4s ease-out, scale 4s 8s ease-out, matrix 4s 12s ease-out, perspective 4s 16s ease-out, translate-finish 1s 20s ease-out;
@@ -107,58 +113,58 @@ html{
 @keyframes translate{
     0% { 
         transform: translate(-60px, -25%); 
-        background-color: #E81416;
+        background-color: var(--color-red);
     }
     50% {
         transform: translate(120px, 50%); 
     }
 	100% { 
         transform: translate(-60px, -25%); 
-        background-color: #E81416;
+        background-color: var(--color-red);
     }	
 }
 
 @keyframes rotate{
     0% { 
         transform: rotate(0.5turn); 
-        background-color: #E81416;
+        background-color: var(--color-red);
     }
 	100% { 
         transform: rotate(0); 
-        background-color: #FFA500;
+        background-color: var(--color-orange);
     }	
 }
 
 @keyframes skew{
     0% { 
         transform: skew(30deg, 20deg); 
-        background-color: #FFA500;
+        background-color: var(--color-orange);
     }
 	100% { 
         transform: skew(0deg, 0deg);
-        background-color: #faeb36; 
+        background-color: var(--color-yellow); 
     }	
 }
 
 @keyframes scale{
     0% { 
         transform: scale(2, 0.5); 
-        background-color: #faeb36; 
+        background-color: var(--color-yellow);
     }
 	100% { 
         transform: scale(1, 1); 
-        background-color: #79c314; 
+        background-color: var(--color-green);
     }	
 }
 
 @keyframes matrix{
     0% { 
         transform: matrix(1, 2, 3, 4, 5, 6); 
-        background-color: #79c314; 
+        background-color: var(--color-green); 
     }
 	100% { 
         transform: matrix(0, 1, 1, 0, 0, 0); 
-        background-color: #487DE7; 
+        background-color: var(--color-blue); 
     }	
 }
 
@@ -166,14 +172,14 @@ html{
     0% { 
       transform-origin: 100% 0; 
       transform: perspective(800px) rotateY(0deg); 
-      background-color: #487DE7; 
+      background-color: var(--color-blue); 
     }
     33% { 
       transform-origin: 100% 0; 
       transform: perspective(800px) rotateY(180deg); 
     }
     50% {
-        background-color: #70369D; 
+        background-color: var(--color-violet); 
     }
     66% { 
       transform-origin: 0 100% ; 
@@ -182,20 +188,20 @@ html{
     100% { 
       transform-origin: 0 100%; 
       transform: perspective(800px) rotateY(0deg); 
-      background-color: #4B369D; 
+      background-color: var(--color-violet); 
     }
 }
 
 @keyframes translate-finish{
     0% { 
         transform: translate(-60px, -25%); ; 
-        background-color: #4B369D;
+        background-color: var(--color-violet);
     }
     50% {
         transform: translate(120px, 50%); 
     }
 	100% { 
         transform: translate(-60px, -25%); 
-        background-color: #E81416;
+        background-color: var(--color-red);
     }	
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="comon.css" />
+    <link rel="stylesheet" href="historyApi-style.css">
     <title>History API</title>
 </head>
 <body>
@@ -11,38 +12,38 @@
         <nav>
           <a href="./index.html">Animation</a>
           <a href="./shadowDom.html">Shadow DOM</a>
-          <a href="./historyApi.html">History API</a>
+          <a class="current-link" href="./historyApi.html">History API</a>
           <a href="./pseudoClasses.html">Pseudo-classes</a>
           <a href="./mathFunctions.html">Math functions</a>
-          <a></a>
+          <a href="./effects.html">Effects</a>
         </nav>
       </header>
-    <hr>
+    <main>
+        <h1>History API</h1>
+        <button class="back">Go back</button>
+        <button class="forward">Go forward</button>
 
-    <h1>History API</h1>
-    <button class="back">Go back</button>
-    <button class="forward">Go forward</button>
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks London" onclick="openCity( 'London')" id="defaultOpen">London</button>
+            <button class="tablinks Paris" onclick="openCity('Paris')">Paris</button>
+            <button class="tablinks Tokyo" onclick="openCity('Tokyo')">Tokyo</button>
+        </div>
 
-    <!-- Tab links -->
-    <div class="tab">
-        <button class="tablinks London" onclick="openCity( 'London')" id="defaultOpen">London</button>
-        <button class="tablinks Paris" onclick="openCity('Paris')">Paris</button>
-        <button class="tablinks Tokyo" onclick="openCity('Tokyo')">Tokyo</button>
-    </div>
-
-    <!-- Tab content -->
-    <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-    </div>
-    <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-    <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-    </div>
+        <!-- Tab content -->
+        <div id="London" class="tabcontent">
+            <h3>London</h3>
+            <p>London is the capital city of England.</p>
+        </div>
+        <div id="Paris" class="tabcontent">
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div id="Tokyo" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+</main>
     <script>
         const backButtonEl = document.querySelector(".back");
         const forwardButtonEl = document.querySelector(".forward");

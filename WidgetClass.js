@@ -1,3 +1,5 @@
+import { getGeolocation } from "./fetch";
+
 export class Widget {
     constructor({host, key = "ad3e4f050c831243787b3b3283c70545", backgroundColor = "aliceblue", width = "260px", height = "104px", shadowColor = "rgba(81,75,130,1)", textColor = "black", fontSize = "18px", loaderColor = "rgb(81,75,130)", language = "uk", positionTop = "-15px", positionRight = "0px"}) {
         this.host = host;
@@ -18,11 +20,12 @@ export class Widget {
 
         this.renderShadowDOM(); 
         this.setStyles(); 
-        this.getGeolocation(); 
+
+        getGeolocation({key: this.key, language: this.language, root: this, type: "class"}); 
     }
     
     renderShadowDOM() {
-        this.container .classList.add("container");
+        this.container.classList.add("container");
 
         this.shadow.appendChild(this.container);
         const loader = document.createElement("div");
@@ -39,64 +42,5 @@ export class Widget {
         );
 
         this.shadow.adoptedStyleSheets = [sheet];
-    }
-
-    getGeolocation() {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition((pos)=>this.success(pos, this), (pos)=>this.error(pos, this));
-            
-            console.log("geolocation is available");
-        } else {
-            console.log("geolocation IS NOT available");
-        }
-    }
-
-    success(pos, _this) { 
-        const crd = pos.coords; 
-        const lat = crd.latitude.toString(); 
-        const lon = crd.longitude.toString(); 
-        _this.getWeather(lat, lon);
-    } 
-      
-    error(err) { 
-        console.warn(`ERROR(${err.code}): ${err.message}`); 
-    }
-
-    getWeather(lat, lon) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.key}&lang=${this.language}&units=metric`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-      
-          return response.json();
-        })
-        .then((response) => {
-          this.createWidget(response);
-        });
-    }
-      
-    createWidget(res) {
-        const content = document.createElement("div");
-        content.classList.add("content");
-        const city = document.createElement("p");
-        city.textContent = res.name.toUpperCase();
-        const weather = document.createElement("p");
-        weather.textContent = res.weather[0].description;
-        const temperature = document.createElement("p");
-        temperature.style.fontSize="1.5em";
-        temperature.textContent = Math.round(res.main.temp) + "°C";
-        const icon = document.createElement("img");
-        icon.classList.add("icon");
-        icon.src = `http://openweathermap.org/img/w/${res.weather[0].icon}.png`;
-        icon.alt = res.weather[0].main;
-      
-        content.appendChild(city);
-        content.appendChild(icon);
-        content.appendChild(weather);
-        content.appendChild(temperature);
-      
-        this.container.innerHTML = "";
-        this.container.appendChild(content);
     }
 }

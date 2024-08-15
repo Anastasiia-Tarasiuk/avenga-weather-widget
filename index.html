@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="comon.css" />
     <link rel="stylesheet" href="animation-styles.css" />
     <title>Animation and Z-index</title>
   </head>
   <body>
     <header>
       <nav>
-        <a href="./index.html">Animation</a>
+        <a class="current-link" href="./index.html">Animation</a>
         <a href="./shadowDom.html">Shadow DOM</a>
         <a href="./historyApi.html">History API</a>
         <a href="./pseudoClasses.html">Pseudo-classes</a>
@@ -18,87 +19,84 @@
         <a href="./effects.html">Effects</a>
       </nav>
     </header>
-    <hr>
-    <h1>Animation</h1>
-    <img class="circle-img" src="./assets/fortune.png">
+    <main>
+      <h1>Animation</h1>
+      <img class="circle-img" src="./assets/fortune.png">
 
-    <div class="container">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
-      <div class="square">
-      <div class="square black">
+      <div class="container">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        <div class="square">
+        <div class="square black">
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
       </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-    </div>
 
-    <div class="text" style="color: #4B369D;">
-      <p>CSS transform property is</p>
-      <p>
-        <span class="word" style="color: #E81416;">translate</span>
-        <span class="word" style="color: #FFA500;">rotate</span>
-        <span class="word" style="color: #faeb36;">skew</span>
-        <span class="word" style="color: #79c314">scale</span>
-        <span class="word" style="color: #487DE7;">matrix</span>
-        <span class="word" style="color: #70369D;">perspective</span>
-      </p>
-      <div class="qube animated"></div>
-    </div>
-
-
-
-
+      <div class="text">
+        <p>CSS transform property is</p>
+        <p>
+          <span class="word" style="color: var(--color-red)">translate</span>
+          <span class="word" style="color: var(--color-orange)">rotate</span>
+          <span class="word" style="color: var(--color-yellow)">skew</span>
+          <span class="word" style="color: var(--color-green)">scale</span>
+          <span class="word" style="color: var(--color-blue)">matrix</span>
+          <span class="word" style="color: var(--color-violet)">perspective</span>
+        </p>
+        <div class="qube animated"></div>
+      </div>
+    </main>
     <script src="./animation.js" type="module"></script>
   </body>
 </html>

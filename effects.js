@@ -4,9 +4,11 @@ const form = document.querySelector(".form");
 const inputs = form.querySelectorAll("input");
 const tip = document.querySelector(".tip");
 const modeList = document.querySelector(".modeList");
+const mix = document.querySelector(".mix");
 
 let isMultipleModeOn = null;
 let mode = [];
+const mixTextContent = mix.textContent;
 
 form.addEventListener("change", e => chooseValue(e));
 checkbox.addEventListener("change", e => getCheckboxValue(e));
@@ -71,3 +73,16 @@ function changeInputType(type){
         }
     })
 }
+
+mix.textContent = "";
+mixTextContent.split("").forEach(letter =>{
+    const span = document.createElement("span");
+
+    if (letter === " ") {
+        span.style.marginLeft ="20px";
+    }
+
+    span.textContent = letter;
+    mix.appendChild(span)
+
+})

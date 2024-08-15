@@ -13,6 +13,10 @@ form {
     background-size: cover;
 }
 
+.blend:hover {
+    background-blend-mode: normal !important;
+}
+
 legend {
     font-size: 24px;
     font-weight: bold;
@@ -43,6 +47,37 @@ label:has(+legend){
     margin-right: 21.5px;
 }
 
+.mix {
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: -0.5rem;
+}
+
+.mix span {
+    mix-blend-mode: multiply;
+}
+
+.mix span:nth-child(1),
+.mix span:nth-child(6),
+.mix span:nth-child(9),
+.mix span:nth-child(14) {
+    color: #AB1795;
+}
+.mix span:nth-child(2),
+.mix span:nth-child(7),
+.mix span:nth-child(11) {
+    color: #167CFB;
+}
+.mix span:nth-child(3),
+.mix span:nth-child(8),
+.mix span:nth-child(12) {
+    color: #37D86E;
+}
+.mix span:nth-child(5),
+.mix span:nth-child(13) {
+    color: #DA7C5F;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -66,7 +101,7 @@ label:has(+legend){
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--base-color);
     -webkit-transition: .4s;
     transition: .4s;
 }

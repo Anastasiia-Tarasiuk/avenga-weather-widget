@@ -1,0 +1,25 @@
+li:has(img) {
+    background-color: green;
+}
+
+li:not(.active) {
+    color: blue;
+}
+
+li:target {
+    background-color: purple;
+}
+
+span:target {
+    background-color: violet;
+}
+
+li:is(target, .active) {
+    color: green;
+}
+
+li:where(target, .active) {
+    color: yellow; /* doesn't work because specificity 0 */
+    font-size: 24px;
+}
+  

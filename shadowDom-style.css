@@ -1,0 +1,12 @@
+.container {
+  padding: var(--padding-gap);
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#root-widget-class {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+}

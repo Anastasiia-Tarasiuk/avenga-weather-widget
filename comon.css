@@ -1,0 +1,99 @@
+/* reset */
+body, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: var(--margin-gap);
+}
+
+a {
+    text-decoration: none;
+    color: var(--base-color);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+/* custom properties */
+:root {
+    --base-color: black;
+    --opposite-color: white;
+    --main-color: lightgray;
+    --accent-color:  aliceblue;
+    --margin-gap: 20px;
+    --padding-gap: 8px;
+}
+
+@property --color-red {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #E81416;
+}
+
+@property --color-orange {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #FFA500;
+}
+
+@property --color-yellow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #faeb36; 
+}
+
+@property --color-green {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #79c314; 
+}
+
+@property --color-blue {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #487DE7; 
+}
+
+@property --color-violet {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #70369D; 
+}
+
+/* comon */
+html { 
+    background-color: var(--main-color);
+}
+
+header {
+    display: grid;
+    align-items: center;
+    background-color: var(--accent-color);
+    height: 2em;
+    padding: var(--padding-gap);
+}
+
+header a:not(:last-child) {
+    margin-right: var(--margin-gap);
+}
+
+header a:hover {
+    background-color: var(--base-color);
+    color: var(--opposite-color);
+}
+
+.current-link {
+    background-color: var(--base-color);
+    color: var(--opposite-color);
+}
+
+main {
+    padding: var(--padding-gap);
+}

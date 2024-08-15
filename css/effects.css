@@ -9,7 +9,7 @@ form {
 .blend {
     height: 440px;
     width: 300px;
-    background-image: url("./assets/pic.webp"), url("./assets/bg.jpg"), linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+    background-image: url("../assets/pic.webp"), url("../assets/bg.jpg"), linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
     background-size: cover;
 }
 
@@ -139,4 +139,21 @@ input:checked + .slider:before {
   
 .slider.round:before {
     border-radius: 50%;
+}
+
+/* Shadow and gradient */
+.circle {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: red;
+    box-shadow: 0 0 100px inset #333;
+
+    /* filter: drop-shadow(16px 16px 10px black) */
+}
+
+.gradient {
+    background: conic-gradient(#fff 0.09turn, #bbb 0.09turn, 0.27turn, #666 0.27turn, 0.54turn, #000 0.54turn);
+    width: 400px;
+    height: 400px;
 }

@@ -89,39 +89,3 @@ li:hover > .third-level.hide {
 .hidden {
     display: none;
 }
-
-.rotate {
-    width: 200px;
-    height: 200px;
-    background-color: yellow;
-    display: grid;
-    place-items: center;
-    margin: 0 auto;
-    margin-bottom: 60px;
-}
-
-label, .round, .rotate {
-    font-size: clamp(16px, 2vw, 24px);
-}
-
-.round, form {
-    text-align: center;
-}
-
-.circle {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background-color: red;
-    box-shadow: 0 0 100px inset #333;
-
-    /* filter: drop-shadow(16px 16px 10px black) */
-}
-
-.gradient {
-    background: conic-gradient(#fff 0.09turn, #bbb 0.09turn, 0.27turn, #666 0.27turn, 0.54turn, #000 0.54turn);
-    width: 400px;
-    height: 400px;
-}
-
-

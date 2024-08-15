@@ -1,14 +1,12 @@
 import { getGeolocation } from "./fetch";
 
-let _this = null;
-
 class CustomComponent extends HTMLElement { 
     constructor() {
         super();
     }
 
     connectedCallback() {
-        _this = this.attachShadow({mode: 'open'}); //shadow root
+        const _this = this.attachShadow({mode: 'open'}); //shadow root
 
         // adds internal styles
         const sheet = new CSSStyleSheet();
@@ -35,6 +33,9 @@ class CustomComponent extends HTMLElement {
             }
             #temperature {
                 font-size: 1.5em;
+            }
+            p {
+                margin: 0;
             }
         `);
         _this.adoptedStyleSheets = [sheet];

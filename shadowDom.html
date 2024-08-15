@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="comon.css" />
-    <link rel="stylesheet" href="shadowDom-style.css" />
+    <link rel="stylesheet" href="./css/comon.css" />
+    <link rel="stylesheet" href="./css/shadowDom-style.css" />
     <title>Shadow DOM</title>
 </head>
 <body>
@@ -16,6 +16,7 @@
       <a href="./pseudoClasses.html">Pseudo-classes</a>
       <a href="./mathFunctions.html">Math functions</a>
       <a href="./effects.html">Effects</a>
+      <a href="./other.html">Other</a>
     </nav>
   </header>
   <main>
@@ -42,7 +43,7 @@
     <!-- RED -->
     <div id="root-template">
         <template shadowrootmode="open">
-          <link rel="stylesheet" href="templateStyle.css"> 
+          <link rel="stylesheet" href="./css/templateStyle.css"> 
           <p>City</p>
           <p>Weather</p>
           <p class="temp">Temperature</p>
@@ -51,7 +52,7 @@
   </main>
   <!-- VIOLET -->
     <script type="module">
-        import { Widget } from './widgetClass.js';
+        import { Widget } from './js/widgetClass.js';
         const widget = new Widget({
           // mandatory arguments
           host: document.querySelector("#root-widget-class"),
@@ -70,7 +71,7 @@
           positionRight: "0px"
         })
     </script>
-  <script src="./templateFragment.js" type="module"></script>
-  <script src="./customComponent.js" type="module"></script>
+  <script src="./js/templateFragment.js" type="module"></script>
+  <script src="./js/customComponent.js" type="module"></script>
 </body>
 </html>

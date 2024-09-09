@@ -22,9 +22,22 @@
   <main>
     <h1>Shadow DOM and Fetch API</h1>
     <div class="container">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p>
+      <!-- Using slots for custom element -->
+      <template id="lorem-template">
+        <style>
+          p {
+            margin: 0;
+          }
+        </style>
+        <slot name="lorem"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestiae consequuntur omnis ullam? Sint quas repellendus omnis quia, atque temporibus dolorum eveniet aliquid, autem cum quisquam harum ratione, minima consectetur.</p></slot>
+      </template>
+      <lorem-element>
+        <p slot="lorem">Some text</p>
+      </lorem-element>
+      <lorem-element>
+        <p slot="lorem">Some other text</p>
+      </lorem-element>
+      <lorem-element></lorem-element>
     </div>
     <div id="root-widget-class"></div>
     <!-- BLUE -->
@@ -70,6 +83,22 @@
           positionTop: "-15px", 
           positionRight: "0px"
         })
+    </script>
+    <!-- Using slots for custom element -->
+    <script>
+      customElements.define(
+        "lorem-element",
+        class extends HTMLElement {
+          constructor() {
+            super();
+            const template = document.getElementById(
+              "lorem-template",
+            ).content;
+            const shadowRoot = this.attachShadow({ mode: "open" });
+            shadowRoot.appendChild(template.cloneNode(true));
+          }
+        },
+      );
     </script>
   <script src="./js/templateFragment.js" type="module"></script>
   <script src="./js/customComponent.js" type="module"></script>

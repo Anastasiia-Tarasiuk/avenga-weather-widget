@@ -41,10 +41,10 @@ class CustomComponent extends HTMLElement {
         _this.adoptedStyleSheets = [sheet];
 
         _this.innerHTML = `
-            <slot id="city"><div>City</div></slot>
-            <slot id="icon"><div>Icon</div></slot>
-            <slot id="weather"><div>Weather</div></slot>
-            <slot id="temperature"><div>Temperature</div></slot>
+            <p>City</p>
+            <p id="icon">Icon</p>
+            <p>Weather</p>
+            <p id="temperature">Temperature</p>
         `;
 
         // adds external stylesheet

@@ -48,15 +48,13 @@ function getWeather(lat, lon, fetchSettings) {
 
 function fillSlots(res, _this) {
     const weatherInfo = res.weather[0];
-    const citySlot = _this.querySelector('#city');
-    const weatherSlot = _this.querySelector('#weather');
-    const temperatureSlot = _this.querySelector('#temperature');
-    const iconSlot = _this.querySelector('#icon');
 
-    citySlot.innerHTML = `<p>${res.name.toUpperCase()}</p>`;
-    weatherSlot.innerHTML = `<p>${weatherInfo.description}</p>`;
-    temperatureSlot.innerHTML = `<p>${Math.round(res.main.temp)}°C</p>`;
-    iconSlot.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherInfo.icon}.png" alt=${res.weather[0].main}/>`
+    _this.innerHTML = `
+        <p>${res.name.toUpperCase()}</p>
+        <p>${weatherInfo.description}</p>
+        <p id="temperature">${Math.round(res.main.temp)}°C</p>
+        <img id="icon" src="http://openweathermap.org/img/w/${weatherInfo.icon}.png" alt=${res.weather[0].main}/>
+    `
 }
 
 function fillFragment(res, template) {

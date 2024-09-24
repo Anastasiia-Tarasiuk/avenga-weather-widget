@@ -1,0 +1,39 @@
+body {
+    --primary-color: orange;
+}
+
+@property --secondary-background-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: brown;
+}
+
+.one {
+    --secondary-background-color: yellow;
+    background-color: var(--secondary-background-color);
+}
+
+.two {
+    background-color: var(--secondary-background-color);
+}
+
+.three {
+    --primary-color: blue;
+    background-color: var(--primary-color);
+}
+
+.four {
+    background-color: var(--primary-color);
+}
+
+.five {
+    background-color: var(--secondary-background-color);
+}
+
+.six {
+    background-color: var(--primary-color);
+}
+
+.fallback {
+    background-color: var(--another-color, green);
+}

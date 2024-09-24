@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/comon.css" />
+    <style>
+        body {
+            --primary-color: orange;
+        }
+
+        @property --secondary-background-color {
+            syntax: "<color>";
+            inherits: true;
+            initial-value: brown;
+        }
+
+        .one {
+            --secondary-background-color: yellow;
+            background-color: var(--secondary-background-color);
+        }
+
+        .two {
+            background-color: var(--secondary-background-color);
+        }
+
+        .three {
+            --primary-color: blue;
+            background-color: var(--primary-color);
+        }
+
+        .four {
+            background-color: var(--primary-color);
+        }
+
+        .five {
+            background-color: var(--secondary-background-color);
+        }
+
+        .six {
+            background-color: var(--primary-color);
+        }
+
+        .fallback {
+            background-color: var(--another-color, green);
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="current-link" href="./index.html">Animation</a>
+            <a href="./shadowDom.html">Shadow DOM</a>
+            <a href="./historyApi.html">History API</a>
+            <a href="./pseudoClasses.html">Pseudo-classes</a>
+            <a href="./mathFunctions.html">Math functions</a>
+            <a href="./effects.html">Effects</a>
+            <a href="./other.html">Other</a>
+            <a class="current-link" href="./cssCustomProperties.html">CSS custom properties</a>
+        </nav>
+    </header>
+    <main>
+        <h1>CSS custom properties inheritance</h1>
+    <div class="one">Parent (at-rule property with inherits: true)
+        <div class="two">Child - Inherited</div>
+    </div>
+
+    <div class="five">Sibling - Not inherited</div>
+
+    <br>
+
+    <div class="three">Parent (custom property syntax)
+        <div class="four">Child - Inherited</div>
+    </div>
+
+    <div class="six">Sibling - Not inherited</div>
+
+    <br>
+
+    <div class="fallback">Fallback</div>
+    </main>
+</body>
+</html>

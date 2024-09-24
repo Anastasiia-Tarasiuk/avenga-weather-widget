@@ -17,6 +17,7 @@
           <a href="./mathFunctions.html">Math functions</a>
           <a href="./effects.html">Effects</a>
           <a href="./other.html">Other</a>
+          <a href="./cssCustomProperties.html">CSS custom properties</a>
         </nav>
       </header>
     <main>
@@ -26,13 +27,13 @@
 
         <!-- Tab links -->
         <div class="tab">
-            <button class="tablinks London" onclick="openCity( 'London')" id="defaultOpen">London</button>
-            <button class="tablinks Paris" onclick="openCity('Paris')">Paris</button>
-            <button class="tablinks Tokyo" onclick="openCity('Tokyo')">Tokyo</button>
+            <button class="tablinks London active">London</button>
+            <button class="tablinks Paris">Paris</button>
+            <button class="tablinks Tokyo">Tokyo</button>
         </div>
 
         <!-- Tab content -->
-        <div id="London" class="tabcontent">
+        <div id="London" class="tabcontent" style="display: block">
             <h3>London</h3>
             <p>London is the capital city of England.</p>
         </div>
@@ -45,57 +46,6 @@
             <p>Tokyo is the capital of Japan.</p>
         </div>
 </main>
-    <script>
-        const backButtonEl = document.querySelector(".back");
-        const forwardButtonEl = document.querySelector(".forward");
-        
-        onpopstate = () => {
-            console.log("on", window.location.pathname)
-            if (history.state?.city_name) {
-                backButtonEl.removeAttribute("disabled");
-                showTab(history.state.city_name);
-            } else {
-                backButtonEl.setAttribute("disabled", "");
-            }
-        };
-
-        // Get the element with id="defaultOpen" and click on it
-        function openCity(cityName) {
-            showTab(cityName)
-            const state = { city_name: cityName };
-            history.pushState(state, "", `./selected=${cityName}`);
-        }
-
-        backButtonEl.addEventListener("click", ()=>{
-            history.back();
-        });
-
-        forwardButtonEl.addEventListener("click", ()=>{
-            history.forward();
-        });
-
-        function showTab(cityName) {
-
-            console.log(history.length)
-            // Declare all variables
-            let i, tabcontent, tablinks;
-        
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-        
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-        
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.querySelector(`#${cityName}`).style.display = "block";
-            document.querySelector(`.${cityName}`).classList.add("active");
-        }
-    </script>
+    <script src="./js/historyApi.js" type="module"></script>
 </body>
 </html>

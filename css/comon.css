@@ -29,6 +29,7 @@ ul {
     --accent-color:  aliceblue;
     --margin-gap: 20px;
     --padding-gap: 8px;
+    --shadow-color: #393B3F;
 }
 
 @property --color-red {

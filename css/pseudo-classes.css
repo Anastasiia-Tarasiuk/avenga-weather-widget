@@ -6,20 +6,35 @@ li:not(.active) {
     color: blue;
 }
 
-li:target {
-    background-color: purple;
+li:is(.active) {
+    color: purple; 
 }
 
-span:target {
-    background-color: violet;
-}
-
-li:is(target, .active) {
-    color: green;
-}
-
-li:where(target, .active) {
+li:where(.active) {
     color: yellow; /* doesn't work because specificity 0 */
     font-size: 24px;
 }
+
+.show-modal {
+    background-color: gray;
+    border-radius: 10%;
+    padding: 3px;
+    color: white;
+}
   
+#modal {
+    display: none;
+}
+
+#modal:target {
+    display: block;
+    width: 100px;
+}
+
+p:has(+span) {
+    color: red;
+}
+
+p+span {
+    text-decoration: underline;
+}

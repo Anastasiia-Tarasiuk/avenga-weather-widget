@@ -32,13 +32,13 @@ function getWeather(lat, lon, fetchSettings) {
 
         switch (fetchSettings.type) {
             case "template":
-                fillFragment(response, fetchSettings.root)
+                fillFragment(response, fetchSettings.root);
                 break;
             case "custom":
-                fillSlots(response, fetchSettings.root)
+                fillSlots(response, fetchSettings.root);
                 break;
             case "class":
-                createWidget(response, fetchSettings.root)
+                createWidget(response, fetchSettings.root);
                 break;
             default:
                 break;

@@ -3,10 +3,8 @@ import { getGeolocation } from "./fetch";
 class CustomComponent extends HTMLElement { 
     constructor() {
         super();
-    }
 
-    connectedCallback() {
-        const _this = this.attachShadow({mode: 'open'}); //shadow root
+        const shadowRoot = this.attachShadow({mode: 'open'}); //shadow root
 
         // adds internal styles
         const sheet = new CSSStyleSheet();
@@ -38,9 +36,9 @@ class CustomComponent extends HTMLElement {
                 margin: 0;
             }
         `);
-        _this.adoptedStyleSheets = [sheet];
+        shadowRoot.adoptedStyleSheets = [sheet];
 
-        _this.innerHTML = `
+        shadowRoot.innerHTML = `
             <p>City</p>
             <p id="icon">Icon</p>
             <p>Weather</p>
@@ -51,9 +49,11 @@ class CustomComponent extends HTMLElement {
         const comonStyles = document.createElement("link");
         comonStyles.setAttribute("rel", "stylesheet");
         comonStyles.setAttribute("href", "comon.css");
-        _this.appendChild(comonStyles);
-        
-        getGeolocation({key: this.getAttribute("key"), language: this.getAttribute("language"), root: _this, type: "custom"});
+        shadowRoot.appendChild(comonStyles);
+    }
+
+    connectedCallback() {
+        getGeolocation({key: this.getAttribute("key"), language: this.getAttribute("language"), root: this.shadowRoot, type: "custom"});
     }
 
     disconnectedCallback() {
